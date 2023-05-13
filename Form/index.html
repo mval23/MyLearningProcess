@@ -8,38 +8,22 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 class="bg-dark text-center text-white py-2">Validaciones JS</h1>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-8 offset-2">
-                <div class="card">
-                    <div class="card-header">
-                        Formulario Registro
-                    </div>
-                    <div class="card-body">
-                        <form action="" id = "form" onsubmit="return validarform()">
-                            <input type="text" class="form-control form-control-log" id="Edad" placeholder="Ingrese Edad">
-                            <p></p>
-                            <br>
-                            <input type="text" class="form-control form-control-log" id="Nombre" placeholder="Ingrese Nombre">
-                            <p></p>
-                            <br>
-                            <input type="text" class="form-control form-control-log" id="Email" placeholder="Ingrese su email">
-                            <p></p>
-                            <br>
-                            <input type="text" class="form-control form-control-log" id="Fecha" placeholder="dd/mm/yyyy Fecha de nacimiento">
-                            <p></p>
-                            <br>
-                            <input type="password" class="form-control form-control-log" id="Password" placeholder="Contraseña">
-                            <p></p>
-                            <br>
-                            <input type="submit" class="btn btn-primary" id="Enviar" value="Enviar">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h1 class="validaciones">Validaciones JS</h1>
+    <form id ="form">  
+        <input type="text" id="Nombre" placeholder="Ingrese Nombre">
+        <p class="error-msg" id="Nombre-msg"></p>
+        <br>
+        <input type="text" id="Email" placeholder="Ingrese su email">
+        <p class="error-msg" id="Email-msg"></p>
+        <br>
+        <input type="password" id="Password1" placeholder="Contraseña">
+        <p class="error-msg" id="Password1-msg"></p>
+        <br>
+        <input type="password"  id="Password2" placeholder="Confirmar contraseña">
+        <p class="error-msg" id="Password2-msg"></p>
+        <br>
+        <input type="submit" id="Enviar" value="Enviar">
+    </form>    
     <script src="js/app.js"></script>
 </body>
 </html>

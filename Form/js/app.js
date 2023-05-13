@@ -1,46 +1,69 @@
-window.addEventListener(
-    'load', () => {
-        const form = document.querySelector('#form')
-        const nombre = document.getElementById('Nombre');
-        const age = document.getElementById('Edad');
-        const email = document.getElementById('Email');
-        const password = document.getElementById('Password') ;
+window.addEventListener('load', () => {
+    const form = document.querySelector('#form');
+    const nombre = document.getElementById('Nombre');
+    const email = document.getElementById('Email');
+    const password1 = document.getElementById('Password1');
+    const password2 = document.getElementById('Password2');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        validarForm();
+    });
+});
 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            validarform();
-        })
-    }
-)
+function validarForm() {
+    const nombre = document.getElementById('Nombre');
+    const email = document.getElementById('Email');
+    const password1 = document.getElementById('Password1');
+    const password2 = document.getElementById('Password2');
+    const nombreValue = nombre.value.trim();
+    const emailValue = email.value.trim();
+    const password1Value = password1.value.trim();
+    const password2Value = password2.value.trim();
 
-function validarform(){
-    const nameValue = nombre.value;
-    const ageValue = age.value;
-    const emailValue = email.value;
-    const passwordValue = password.value;
-
-    const nameRegex = /^[a-zA-Z ]{2,30}$/;
-    const ageRegex = /^[1-9][0-9]?$|^100$/;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const dateRegex = /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[0-2])\/(19|20)\d{2}$/; 
-
-    if (!nameRegex.test(name)) {
-    alert('Porfavor ingresa tu nombre correctamente.');
-    } else if (!ageRegex.test(age)) {
-    alert('Porfavor ingresa tu edad correctamente.');
-    } else if (!emailRegex.test(email)) {
-    alert('Porfavor ingresa tu email correctamente.');
-    } else if (!dateRegex.test(date)) { 
-        alert('Por favor ingresa una fecha válida en formato dd/mm/yyyy.');
+    if (nombreValue === '') {
+        failValidation(nombre, 'El nombre es requerido');
     } else {
-    alert('Su data se ha enviado!');
+        removeValidation(nombre);
     }
 
+    if (emailValue === '') {
+        failValidation(email, 'El correo electrónico es requerido');
+    } else if (!isEmailValid(emailValue)) {
+        failValidation(email, 'El correo electrónico no es válido');
+    } else {
+        removeValidation(email);
+    }
+
+    if (password1Value === '') {
+        failValidation(password1, 'La contraseña es requerida');
+    } else {
+        removeValidation(password1);
+    }
+
+    if (password2Value === '') {
+        failValidation(password2, 'Debe confirmar su contraseña');
+    } else if (password1Value !== password2Value) {
+        failValidation(password2, 'Las contraseñas no coinciden');
+    } else {
+        removeValidation(password2);
+    }
 }
 
-const failValidation = (inout, msj) => {
+function isEmailValid(email) {
+    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return emailRegex.test(email);
+}
+
+const failValidation = (input, msj) => {
     const form = input.parentElement;
-    console.log(form)
-    const notif = form.querySelector('p');
+    const notif = form.querySelector('#' + input.id + '-msg.error-msg');
     notif.innerText = msj;
+}
+
+const removeValidation = (input) => {
+    const form = input.parentElement;
+    const notif = form.querySelector('p');
+    input.classList.remove('invalid');
+    notif.innerText = '';
+    notif.classList.remove('invalid');
 }
