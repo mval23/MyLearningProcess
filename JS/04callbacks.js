@@ -22,3 +22,10 @@ console.log(resultado)
 const suma = (a, b, cb) => cb(a + b);
 const print = (data) => console.log(data);
 suma(343, 7, print)
+
+const getdta = (cb) =>{
+    cb({
+        nombre: 'Juan',
+        apell: 'Perez'
+    })
+}
