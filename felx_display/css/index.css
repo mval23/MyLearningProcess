@@ -1,0 +1,37 @@
+*{margin: 0; padding: 0;}
+.div-menu{
+    width: 100%;
+    height: 150px;
+    background-color: rgb(4, 4, 66);
+}
+div.div-menu ul{
+    list-style: none;
+    padding: 40px 0 0 40px;
+}
+.div-menu ul li{
+    display: inline;
+    margin-right: 50px;
+}
+.div-menu a{
+    color: white;
+    font-size: 35px;
+    text-decoration: none;
+}
+.div-lateral1{
+    width: 30%;
+    height: 250px;
+    background-color: rgb(148, 254, 254);
+    float: left;
+}
+.div-lateral2{
+    width: 70%;
+    height: 250px;
+    background-color: rgb(141, 141, 250);
+    float: left;
+}
+.div-pie{
+    width: 100%;
+    height: 150px;
+    background-color: rgb(4, 4, 66);
+    clear: both;
+}

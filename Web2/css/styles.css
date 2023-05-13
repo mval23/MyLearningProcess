@@ -1,0 +1,50 @@
+div{
+    width: 100px;
+    height: 100px;
+    border: solid black;
+
+}
+
+div.static{
+    background-color: blue;
+    top: 200px; 
+    left: 200px;
+}
+div.relative{
+    background-color: rebeccapurple;
+    position: relative;
+    top: 200px; 
+    left: 200px;
+}
+/* 
+position original = vacio
+top left - from static
+*/
+div.absolute{
+    background-color: blanchedalmond;
+    position: absolute;
+    top: 200px; 
+    left: 200px;
+}
+/* 
+top left - from window
+position original = filled - other elmt
+*/
+div.fixed{
+    background-color: rgb(223, 23, 113);
+    position: fixed;
+    top: 300px; 
+    left: 200px;
+}
+/* 
+scroll - NO cambia position
+*/
+div.sticky{
+    background-color: rgb(23, 223, 146);
+    position: sticky ;
+    top: 0px; 
+    left: 200px;
+}
+/*
+stick - window posito
+*/
