@@ -1,0 +1,35 @@
+div p { /* descendencia */
+    background-color: blueviolet;
+}
+
+div > p{ /* hijos directos */
+    background-color: red;
+}   
+
+p span{
+    background-color: blanchedalmond;
+}
+
+p ~ ul{ /* hijos directos, son hermanos*/
+    background-color: hotpink;
+}  
+
+h1 + h2{ /* adyacencia */
+    background-color: gray;
+}
+
+h2 + h1{
+    background-color: gray;
+}
+
+p[title]{ /* selccionar por el atributo */
+    background-color: green;
+}
+
+a[target]{ /* selccionar por el atributo */
+    background-color: blue;
+}
+
+p[title="atributo especifico"]{ /* selccionar por el atributo especifico */
+    background-color: rosybrown;
+}
